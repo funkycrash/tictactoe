@@ -153,14 +153,20 @@ function FunkyTicTacToe() {
     let strategicalMove = []
     for (let i = 0; i < WINNING_COMBINATIONS.length; i++) {
       let dangerous = true
+      let playersMarkCount = 0
       for (let j = 0; j < WINNING_COMBINATIONS[i].length; j++) {
         let id = WINNING_COMBINATIONS[i][j]
         if (this.grid[id] === this.computersMark) {
           dangerous = false
         }
+        // Checking if the player has played that lined already.
+        if (this.grid[id] === this.playersMark) {
+          playersMarkCount++
+        }
         dangerous =
           (this.grid[id] === this.playersMark ||
             typeof this.grid[id] === 'number') &&
+          playersMarkCount > 0 &&
           dangerous
       }
       if (dangerous) {
