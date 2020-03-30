@@ -8,7 +8,7 @@ vertical, or diagonal row is the winner.
 The computer always starts in this version and will place his first mark in the
 center.
 
-![](header.png)
+![](https://github.com/funkycrash/tictactoe/blob/master/tictactoe.png)
 
 ## Usage example
 
