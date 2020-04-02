@@ -107,11 +107,9 @@ function FunkyTicTacToe() {
 
   this.checkIfPlayerWon = player => {
     for (let i = 0; i < WINNING_COMBINATIONS.length; i++) {
-      let won = true
-      for (let j = 0; j < WINNING_COMBINATIONS[i].length; j++) {
-        let id = WINNING_COMBINATIONS[i][j]
-        won = this.grid[id] === player && won
-      }
+      let won = WINNING_COMBINATIONS[i].every(value => {
+        return this.grid[value] === player
+      })
       if (won) {
         return true
       }
