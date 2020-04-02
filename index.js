@@ -37,13 +37,13 @@ function FunkyTicTacToe() {
   }
 
   this.prompt = () => {
-    var rl = readline.createInterface({
+    const readLine = readline.createInterface({
       input: process.stdin,
       output: process.stdout,
     })
 
     return new Promise(resolve => {
-      rl.question(
+      readLine.question(
         'Enter the number of the square you would like to mark\n',
         resolve,
       )
@@ -51,7 +51,7 @@ function FunkyTicTacToe() {
       // Only allow available squares and limit input to the grid
       if (this.checkIfInputIsValid(input)) {
         this.grid[input] = this.playersMark
-        rl.close(rl)
+        readLine.close(readLine)
       } else {
         console.log('Incorrect input. Try again.')
         return this.prompt()
@@ -69,7 +69,7 @@ function FunkyTicTacToe() {
 
   this.turn = () => {
     this.printGrid()
-    return this.prompt().then(_ => {
+    return this.prompt().then(() => {
       let status = this.checkGame()
       if (status.tie || status.winner) {
         console.log('Game over. Thank you for playing.')
